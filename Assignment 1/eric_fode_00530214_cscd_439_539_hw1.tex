@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{graphics,epsfig,color}
+\usepackage{wrapfig}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\pagestyle{fancy}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{observation}{Observation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{openproblem}{Open Problem}[section]
+\newtheorem{fact}{Fact}[section]
+
+\newcommand{\qedsymb}{\hfill{\rule{2mm}{2mm}}}
+\newenvironment{proofsketch}
+{
+	\begin{trivlist}
+	\item[\hspace{\labelsep}{\noindent Proof Sketch: }]
+}{\qedsymb\end{trivlist}}
+
+
+
+%the following few lines until usepackage{algorithm2e} is to avoid the
+%conflicts of algorithm2e with other packages.
+\makeatletter
+\newif\if@restonecol
+\makeatother
+\let\algorithm\relax
+\let\endalgorithm\relax
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+\newcommand{\remove}[1]{}
+
+
+
+%--------------------------------
+
+
+\begin{document}
+
+	\renewcommand{\headrulewidth}{0.4pt}
+	\setlength{\headheight}{38.0pt}
+	\fancyhead[L]{\bf CSCD359 Homework1, Winter 2012, 
+	Eastern Washington University. Cheney, Washington. \\
+	\bigskip Name: Eric Fode\hspace{40mm}EWU ID:00530214}
+
+
+	\noindent{\bf Solution for Problem 1}
+	$$frac{2}{3}$$ Is the probability that the coin is the two headed coin.
+	\newpage
+	\noindent{\bf Solution for Problem 2}
+	Using bayes law the proabibilty can be calculated as such
+	$$
+	P(sick|positive) = frac{P(positive|sick) * P(sick)}{(P(positive|sick) * P(sick)(P(positive|well) * P(well)}
+	$$
+	which figures out to
+	$$
+	frac{.99*.02}{.99*.02+.005*.98} = .8016
+	$$
+	So the probibilty that you are sick if the test returns true is about \[ 80% \]
+	\bigskip
+	
+	\noindent{\bf Solution for Problem  3}
+	\begin{proof} If we craft a graph that all the possible min-cuts require removing two or less
+		edges. Then it is simple to see that the maximum number of distinct min-cuts is givin by this
+		combination
+		$$
+		n\choose{2} = \frac{n)}{(n-2)!2!}
+		$$
+		if we craft a graph that require removing k edges to creat a min-cut we get the combination
+		$$
+		n\choose{k} = \frac{n)}{(n-k)!k!}
+		from this it is simple to see that where k > 2
+		$$
+		\frac{n)}{(n-k)!k!} \leq \frac{n)}{(n-2)!2!}
+		$$
+		and it follow that therefor the graph that you only have to remove two edges has the most min-cuts
+		So therefor there exsists no graph that has more then 
+		$$
+		frac{n(n-1)}{2}
+		$$
+		min-cut sets
+	\end{proof}
+	
+	\bigskip
+	\noindent{\bf Solution for Problem 4}
+	The number of possible premutations of five letters that the monkey can type are 7,893,600. Out of those only 1 is proof
+	so the probabilty of proof is type after only 5 letters is
+	$$
+	1/7893600
+	$$
+	\bigskip
+	
+	\noindent{\bf Solution for Problem 5}\\
+	
+	\bigskip
+	\noindent{\bf Solution for Problem 6}\\
+	
+	\bigskip
+	\noindent{\bf Solution for Problem 7}\\
+	
+	\bigskip
+	\noindent{\bf Solution for Problem 8}\\
+\end{document}
+
+
+
+
