@@ -56,36 +56,43 @@
 
 
 	\noindent{\bf Solution for Problem 1}
-	$$\frac{2}{3}$$ Is the probability that the coin is the two headed coin.
-	\newpage
-	\noindent{\bf Solution for Problem 2}
-	Using bayes law the proabibilty can be calculated as such
+	
+	let $x = 1$ if the coin is two headed
 	$$
-	P(sick|positive) = frac{P(positive|sick) * P(sick)}{(P(positive|sick) * P(sick)(P(positive|well) * P(well)}
+	P(x	| h) = \frac{P(h|x) P(x)}{P(h|x) P(x) + P(h|\bar{x}) P(\bar{x})}=
+	\frac{2}{3}
+	$$
+	 Is the probability that the coin is the two headed coin.
+
+	\noindent{\bf Solution for Problem 2}
+	Using bayes law the probability can be calculated as such
+	$$
+	P(sick|positive) = \frac{P(positive|sick) * P(sick)}{(P(positive|sick) * P(sick)		(P(positive|well) * P(well)}
 	$$
 	which figures out to
 	$$
 	\frac{.99*.02}{.99*.02+.005*.98} = .8016
 	$$
-	So the probibilty that you are sick if the test returns true is about \[ 80% \]
+	So the probability that you are sick if the test returns true is about $.80$
 	\bigskip
 	
 	\noindent{\bf Solution for Problem  3}
 	\begin{proof} If we craft a graph that all the possible min-cuts require removing two or less
-		edges. Then it is simple to see that the maximum number of distinct min-cuts is givin by this
+		edges. Then it is simple to see that the maximum number of distinct min-cuts is given by this
 		combination
 		$$
-		n\choose{2} = \frac{n)}{(n-2)!2!}
+		n\choose{2} = \frac{n}{(n-2)!2!}
 		$$
-		if we craft a graph that require removing k edges to creat a min-cut we get the combination
+		if we craft a graph that require removing k edges to create a min-cut we get the combination
 		$$
-		n\choose{k} = \frac{n)}{(n-k)!k!}
+		n\choose{k} = \frac{n}{(n-k)!k!}
+		$$
 		from this it is simple to see that where k > 2
 		$$
-		\frac{n)}{(n-k)!k!} \leq \frac{n)}{(n-2)!2!}
+		\frac{n}{(n-k)!k!} \leq \frac{n}{(n-2)!2!}
 		$$
-		and it follow that therefor the graph that you only have to remove two edges has the most min-cuts
-		So therefor there exsists no graph that has more then 
+		and it follow that therefore the graph that you only have to remove two edges has the most min-cuts
+		So therefore there exists no graph that has more then 
 		$$
 		\frac{n(n-1)}{2}
 		$$
@@ -94,28 +101,72 @@
 	
 	\bigskip
 	\noindent{\bf Solution for Problem 4}
-	Less then one time.
+	$$
+	p("proof") = (\frac{1}{25})^5
+	p(x) = \frac{1000000-4}{11881376}
+	$$
+ 	$.084$ times.
 	\bigskip
-	
-	\noindent{\bf Solution for Problem 5}\\
+	\newpage
+	\noindent{\bf Solution for Problem 6}\\
 	The expected number of cards that need to be taken from the deck is about is given by
+	\begin{align*}	
+		X &= \sum\limits_{i=1}^n x_i\\
+		E[X] &= E[\sum\limits_{i=1}^n x_i]\\
+		E[X] &= \sum\limits_{i=1}^n E[x_i]\\
+	\end{align*}
+	where $c_i$ is the number of cards that need to be drawn to get the ith distinct card
+
 	$$
-	n \ln n + \theta(n)
-	$$
-	The number of unseen cards after \[2n\] draws will be
-	$$
-	n((\frac{n-1}{n})^2n)
+	c_i = \left\{
+			\begin{array}{ll}
+				 1 & \mbox{if the card is new}\\
+				 0 & \mbox{if the card has been seen} 
+			\end{array}
+		\right.
+		\\
 	$$
 
+	\begin{align*}
+		P_i &= Pr(c_i=1)\\
+		Pr(c_i=1) &= 1 - \frac{i-1}{n}\\
+		E[x_i] &= \frac{1}{p_i}=\frac{n}{n-i+1}\\
+	\end{align*}
+	Plugging this into the summation we get
+	\begin{align*}
+		E[X] &= \sum\limits_{i=1}^n \frac{n}{n-i+1}\\
+			 &= n\sum\limits_{i=1}^n \frac{1}{i}\\
+			 &= n \ln n + n
+	\end{align*}
 	
-	\bigskip
-	\noindent{\bf Solution for Problem 6}\\
 	
+	The number of unseen cards after $2n$ draws will be
+	$$
+	n(\frac{n-1}{n})^{2n})
+	$$
+
+	\newpage
 	\bigskip
 	\noindent{\bf Solution for Problem 7}\\
-	
+	let $x_i$ be the number of flips to the next head
+	\begin{align*}
+		E[X] &= E[\sum\limits_{i=1}^k x_i]\\
+			 &= \sum\limits_{i=1}^k E[x_i]\\
+			 &= \sum\limits_{i=1}^k \frac{1}{p}\\
+			 &= \frac{k}{p}
+	\end{align*}
 	\bigskip
 	\noindent{\bf Solution for Problem 8}\\
+	\begin{align*}
+		E[X] &= E[\sum\limits_{i=1}^{n}|a_i-i|]\\
+			 &= \sum\limits_{i=1}^{n}E[|a_i-i|]\\
+		Pr(a_i=j)&=\frac{1}{n}\\
+		E[|a_i -i|] &= \sum\limits_{j=1}^n \frac{1}{n}j\\
+		&= \frac{n+1}{2} - \frac{i}{n}\\
+		E[\sum\limits_{i=1}^{n}|a_i-i|]&=\sum\limits_{i=1}^{n}\frac{n+1}{2} - \frac{i}{n}\\
+		&=\frac{n(n+1)}{2} - \frac{1}{n}\frac{n(n+1)}{2}\\
+		&=\frac{n^2-1}{2}		
+	\end{align*}
 \end{document}
 
 
